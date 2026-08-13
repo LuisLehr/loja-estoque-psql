@@ -1,0 +1,49 @@
+Views
+
+OK - Estoque abaixo do mínimo — produtos que precisam de reposição
+OK - Posição completa do estoque — produto, categoria, local, quantidades atual/min/max
+OK - Resumo de vendas por mês — quantidade de vendas e valor total por período
+OK - Itens mais vendidos — ranking de produtos por quantidade vendida
+OK - Vendas por funcionário — quantidade e valor total gerado por cada um
+OK - Clientes com mais compras — ranking de clientes por volume e valor
+OK - Ficha completa do cliente — dados + contatos agregados + endereço numa consulta só 
+OK - Ficha completa do funcionarios — dados + contatos agregados + endereço numa consulta só 
+OK - Vendas em aberto — vendas com status ABERTA ou pagamento PENDENTE
+OK - Produtos inativos — cadastros com ATIVO = 'I' em produtos, categorias ou fornecedores
+
+
+Functions
+
+ - Calcular total de vendas de um cliente — recebe o ID_CLIENTE e retorna o valor total que ele já gastou
+ - Buscar estoque atual de um produto — recebe o ID_PRODUTO e retorna a quantidade disponível por local
+ - Verificar se produto tem estoque suficiente — recebe produto e quantidade desejada, retorna verdadeiro ou falso
+ - Calcular ticket médio por período — recebe data início e fim, retorna o valor médio das vendas no intervalo
+
+
+Procedures
+
+ - Registrar entrada de estoque — recebe produto, quantidade e fornecedor, insere em ESTOQUE e MOVIMENTO_ESTOQUE de uma vez
+ - Cancelar venda — atualiza o status da venda para CANCELADA, estorna o pagamento e devolve os itens ao estoque
+ - Transferir estoque entre locais — move quantidade de um LOCAL_ESTOQUE para outro registrando o movimento
+
+
+Triggers
+
+ - Atualizar DATA_ATUALIZACAO do estoque — dispara no UPDATE da tabela ESTOQUE e grava o timestamp automaticamente
+ - Registrar movimento ao vender — após insert em VENDA_ITEM, insere automaticamente uma saída em MOVIMENTO_ESTOQUE
+ - Bloquear venda com estoque insuficiente — antes do insert em VENDA_ITEM, verifica se há quantidade disponível e cancela se não tiver
+ - Bloquear exclusão de cliente com vendas — impede DELETE em CLIENTE se ele tiver vendas associadas (complementa o ON DELETE RESTRICT)
+ - Registrar log de alteração de preço — toda vez que o preço de um produto mudar, salva o valor anterior numa tabela de histórico
+
+
+Selects interessantes para praticar
+
+ - Produtos que nunca foram vendidos
+ - Clientes que não compram há mais de 30 dias
+ - Fornecedor que mais gerou produtos vendidos
+ - Mês com maior faturamento
+ - Funcionário com maior ticket médio por venda
+ - Produtos com mais de X unidades vendidas num período
+ - Vendas com desconto acima de 10% do valor bruto
+
+ 
