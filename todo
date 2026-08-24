@@ -14,7 +14,7 @@ OK - Produtos inativos — cadastros com ATIVO = 'I' em produtos, categorias ou 
 
 Functions
 
- - Calcular total de vendas de um cliente — recebe o ID_CLIENTE e retorna o valor total que ele já gastou
+OK - Calcular total de vendas de um cliente — recebe o ID_CLIENTE e retorna o valor total que ele já gastou
  - Buscar estoque atual de um produto — recebe o ID_PRODUTO e retorna a quantidade disponível por local
  - Verificar se produto tem estoque suficiente — recebe produto e quantidade desejada, retorna verdadeiro ou falso
  - Calcular ticket médio por período — recebe data início e fim, retorna o valor médio das vendas no intervalo
