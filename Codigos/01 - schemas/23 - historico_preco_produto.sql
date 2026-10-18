@@ -1,0 +1,8 @@
+-- CRIANDO UMA TABELA QUE IRA ARMAZENAR O HISTORICO DE PREÇOS DOS PRODUTOS
+CREATE TABLE historico_preco_produto(
+    id SERIAL PRIMARY KEY,
+    produto_id INT NOT NULL,
+    preco_anterior DECIMAL(10,2) NOT NULL,
+    preco_novo DECIMAL (10,2) NOT NULL,
+    data_alteracao TIMESTAMP DEFAULT NOW()
+);

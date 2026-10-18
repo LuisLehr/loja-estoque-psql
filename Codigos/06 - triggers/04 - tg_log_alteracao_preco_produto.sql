@@ -1,0 +1,6 @@
+-- CRIANDO UMA TRIGGER QUE SALVA O LOG DE ALTERACAO DE PRECO DE UM PRODUTO
+CREATE OR REPLACE TRIGGER tg_log_alteracao_preco_produto
+AFTER UPDATE
+OF preco ON produtos
+FOR EACH ROW
+EXECUTE FUNCTION fn_tg_log_alteracao_preco_produto();

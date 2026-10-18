@@ -1,0 +1,17 @@
+-- CRIANDO UMA FUNCTION QUE VALIDA SE UM CLIENTE PODE SER EXCLUIDO OU NAO
+CREATE OR REPLACE FUNCTION fn_tg_valida_exclusao_cliente()
+RETURN TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+
+    -- VERIFICA SE O ID EXISTE NA TABELA DE VENDA
+    IF EXISTS (SELECT 1 FROM venda WHERE id_cliente = OLD.id) THEN
+        RAISE EXCEPTION 'Não é possível excluir o cliente. Ele possui vendas associadas.';
+    END IF;
+
+    -- SE NAO HOUVER VENDAS, DELETA O CLIENTE
+    RETURN OLD;
+
+END;
+$$; 
