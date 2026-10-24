@@ -4,7 +4,7 @@ RETURNS NUMERIC
 LANGUAGE plpgsql
 AS $$
 DECLARE
-    v_total NUMERIC
+    v_total NUMERIC;
 BEGIN
     SELECT SUM(valor_total)
       INTO v_total

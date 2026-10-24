@@ -7,7 +7,7 @@ DECLARE
     v_quantidade_disponivel INTEGER;
 BEGIN
 
-    -- BUSCA A QUANTIDADE DISPONIVEL DO PRODUTO 
+    -- BUSCA A QUANTIDADE DISPONIVEL DO PRODUTO NO ESTOQUE (SEM LEVAR VITRINE EM CONSIDERACAO)
     SELECT quantidade 
       INTO v_quantidade_disponivel
       FROM estoque

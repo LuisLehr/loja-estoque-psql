@@ -10,7 +10,7 @@ BEGIN
         SELECT ROUND(AVG(valor_total), 2)
             AS valor_medio_venda
           FROM venda
-         WHERE data_venda BETWEEN data_inicial AND data_final;
+         WHERE data_venda BETWEEN data_inicial AND data_final
     );
     
 END;

@@ -10,7 +10,7 @@ BEGIN
     -- ATUALIZANDO O ESTOQUE    
     UPDATE estoque
        SET quantidade = quantidade + p_quantidade
-     WHERE id = p_id_produto
+     WHERE id_produto = p_id_produto
        AND id_local = p_local_estoque;
 
     -- REGISTRANDO O MOVIMENTO

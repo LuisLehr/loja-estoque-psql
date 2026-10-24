@@ -9,3 +9,7 @@ SELECT p.nome,
     ON v.id = vi.id_venda
  WHERE v.status = 'CONCLUIDA'   
  GROUP BY nome;
+
+
+-- Ao consultar:
+-- SELECT * FROM v_mais_vendidos ORDER BY total_vendido DESC;
